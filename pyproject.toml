@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+corpustools = "obfuscator.cli:main"
+
+[project]
+name = "obfuscator"
+version = "0.1.0"
+description = "Simple and fast corpus obfuscation based on character permutation (not sufficient for adversarial servers, but just enough for our purpose and faster than Homomorphic Encryption/ML)"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Elian Carsenat", email = "elian.carsenat@namsor.com"}]
+dependencies = [
+]
+
+[project.urls]
+Homepage = "https://github.com/namsor/obfuscator"

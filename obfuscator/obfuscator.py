@@ -3,9 +3,11 @@ import json
 
 class Obfuscator :
     """
-    Obfuscator class to obfuscate and deobfuscate text using a character mapping and permutations. """
-    def __init__(self, most_common_characters, iter_count=3, window_size=3):
-
+    Obfuscator class to obfuscate and deobfuscate text using a character mapping and permutations. 
+    Roundtrip processing 195M names with 3k unique characters takes about 30 minutes.
+    """
+    def __init__(self, most_common_characters, key_name="", iter_count=3, window_size=3):
+        self.key_name = key_name
         self.characters_map = {c[0]:i for i, c in enumerate(most_common_characters)}
         self.characters_list =  tuple([c[0] for c in most_common_characters])
 
@@ -41,6 +43,7 @@ class Obfuscator :
     def to_json(self):
         """Convert the Obfuscator object to a JSON string."""
         return json.dumps({
+            'key_name': self.key_name,
             'characters_map': self.characters_map,
             'characters_list': self.characters_list,
             'permutations': self.permutations,
@@ -50,6 +53,7 @@ class Obfuscator :
     def from_json(self, json_str) :
         """Load the Obfuscator object from a JSON string."""
         data = json.loads(json_str)
+        self.key_name = data['key_name']
         self.characters_map = data['characters_map']
         self.characters_list = tuple(data['characters_list'])
         self.permutations = tuple(data['permutations'])
