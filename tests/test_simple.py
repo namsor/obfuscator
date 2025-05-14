@@ -8,11 +8,7 @@
 # see naming conventions for example here:
 # https://docs.pytest.org/en/latest/goodpractices.html
 # 
-#
-#
-# instead of 
-#   from bidule.machine import Machine
-# # see bidule/__init__.py about how this is possible
+
 
 from obfuscator import Obfuscator
 
