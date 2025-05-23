@@ -46,6 +46,7 @@ def test_json_2():
 
     decrypted2 = o2.deobfuscate(encrypted) 
     print(f"test2 clear {clear} o.encrypted {encrypted} o2.decrypted {decrypted2}")
+    
     assert encrypted != clear
     assert decrypted2 == clear
 
