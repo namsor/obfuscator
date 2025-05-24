@@ -6,7 +6,7 @@ from typing import Union
 import logging as log
 
 class Dictionary:
-    """This class holds a dictionary that maps strings to unique integer IDs.
+    """ FLAIR This class holds a dictionary that maps strings to unique integer IDs.
 
     Used throughout Flair for representing words, tags, characters, etc.
     Handles unknown items (<unk>) and flags for multi-label or span tasks.
@@ -250,7 +250,7 @@ class Obfuscator :
             self.characters_list[self.permutations_inverse[self.characters_map[c]]] if c in self.characters_map else c
             for c in obfuscated_text
         ])
-
+    
     def to_json(self):
         """Convert the Obfuscator object to a JSON string."""
         return json.dumps({
